@@ -30,6 +30,11 @@ xiaoguai=op.PartOfTheScreen("小怪", PHOTOPATH + "xiaoguai.bmp", 10)
 zhubei=op.PartOfTheScreen("准备", PHOTOPATH + "zhunbei.bmp")
 shenle=op.PartOfTheScreen("神乐", PHOTOPATH + "shenle.bmp")
 
+#######################
+#todo:New!!
+close=op.PartOfTheScreen("关闭", PHOTOPATH + "close.bmp")
+back=op.PartOfTheScreen("返回", PHOTOPATH + "back.bmp")
+tilibuzu=op.PartOfTheScreen("体力不足", PHOTOPATH + "tilibuzu.bmp")
 
 
 #########################################
