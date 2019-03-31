@@ -84,12 +84,15 @@ class PartOfTheScreen(object):
     def __init__(self,name,path,r=0):
         self.name=name
         self.path=path
+        # self.x=0
+        # self.y=0
         # self.center_xy=center_xy
         self._tmp=int(sorted(cv2.imread(self.path).shape[:-1])[0]//2)
         if r==0:
             self.r= self._tmp
         else :
             self.r= r
+        # self.get_centerxy(1)
         # self.condition=condition
         # self.cmd=cmd
     def get_ALLcenterxy(self,condition,n):
@@ -158,6 +161,8 @@ class PartOfTheScreen(object):
             if self.get_centerxy(condition):
                 swipe(self.x,self.y,self.x,self.y,delay=0.2,delay3=delay)
                 log.info("长按 %s (%s,%s)" % (self.name, self.x , self.y ))
+                return 1
+            return 0
     def delaytap(self,condition,beforetap=0.1,taping=0.1,aftertap=0.1,):
         if condition:
             #延迟点击此区域   延时区有 1、点击前延时 2、点击后延时  3、点击按的时候延时
@@ -172,6 +177,8 @@ class PartOfTheScreen(object):
                 rantime = random.randint(1, 100)
                 swipe(self.x,self.y,endx,endy,delay=0.3,delay3=(delay+rantime/100))
                 log.info("拖动 %s (%s,%s)->(%s,%s)" % (self.name, self.x, self.y,endx,endy))
+                return 1
+            return 0
 def getScreen():
     dm.Capture(0, 0, 1900, 1080, "photo/now.bmp")
 

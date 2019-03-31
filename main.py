@@ -64,27 +64,159 @@ def juqing():
         juqing_skip.tap(1)
         juqing_skip2.tap(1)
         xiaoguai.tap(1)
-        zhubei.tap(1)
+        zhunbei.tap(1)
         time.sleep(2)
 def fuben(n):
     log.info("开始探索副本")
+    flag_tansuing=0
+    flag_no_swipe=1
+    flag_findbox=0
+    move_count=0
+    move2_count=0
+    manji_flag=0
+    huan_status=0
     while n>=0:
-        if tansuo.tap(1):
+        if baoxiang.get_centerxy(1) or baoxiang2.get_centerxy(1):
+            flag_findbox=1
+        if flag_findbox==1:
+            if baoxiang2.tap(1):
+                flag_findbox=0
+            close_tansuo.tap(1)
+        if tansuo.tap(flag_findbox==0):
             n-=1
+            flag_tansuing=1
+            move_count = 0
+            move2_count = 0
             time.sleep(2)
-        zhang28.tap(1)
+        if zhang28.tap(flag_findbox==0):
+            flag_tansuing = 1
+        kunnan.tap(1)
         shibai.tap(1)
         shengli1.tap(1)
         shengli2.tap(1)
-        xiaoguai.tap(1)
-        zhubei.tap(1)
-        boss.tap(1)
-        zhiren.tap(1)
-        jiangli.tap(1)
+        if zhiren.tap(1):
+            flag_no_swipe = 1
+            move_count = 0
+            move2_count = 0
+        elif zhiren2.tap(1):
+            flag_no_swipe = 1
+            move_count = 0
+            move2_count = 0
+        if boss.tap(1):
+            flag_tansuing=0
+            flag_no_swipe = 1
+            move_count = 0
+            move2_count = 0
+        elif boss2.tap(1):
+            flag_tansuing = 0
+            flag_no_swipe = 1
+            move_count = 0
+            move2_count = 0
+        elif boss3.tap(1):
+            flag_tansuing = 0
+            flag_no_swipe = 1
+            move_count = 0
+            move2_count = 0
+        elif xiaoguai.tap(1):
+            flag_no_swipe = 1
+        elif xiaoguai2.tap(1):
+            flag_no_swipe = 1
+        elif xiaoguai3.tap(1):
+            flag_no_swipe = 1
+        elif xiaoguai4.tap(1):
+            flag_no_swipe = 1
+
+
+        elif jiangli.tap(1):
+            flag_no_swipe = 1
+        elif manji.get_centerxy(1):
+            manji_flag=1
+            flag_no_swipe = 1
+        elif manji2.get_centerxy(1):
+            manji_flag=1
+            flag_no_swipe = 1
+        else:
+            flag_no_swipe = 0
+
+
+        if manji_flag==0:
+
+            zhunbei2.tap(1)
+            zhunbei.tap(1)
+            zhunbei3.tap(1)
+        elif manji_flag==1:
+            if qingmingtou.tap(1) or qingminglong2.tap(1):
+                #or qingminglong.tap(1)
+                huan_status=1
+            if huan_status==1:
+                if all_ka.longtap(1, 0.2):
+                    huan_status=2
+                elif n_ka_find.get_centerxy(1):
+                # else :
+                    huan_status=3
+            elif huan_status==2:
+                if n_ka.longtap(1,0.2):
+                    huan_status=3
+            elif huan_status==3:
+                if gouliang_nka.get_centerxy(1)or gouliang_nka3.get_centerxy(1) or gouliang_nka4.get_centerxy(1) or  gouliang_nka5.get_centerxy(1) or  gouliang_nka2.get_centerxy(1):
+                    huan_status = 4
+
+                huakuai.get_centerxy(1)
+                huakuai.swipe(1, huakuai.x + 80, huakuai.y)
+                time.sleep(0.5)
+
+            elif huan_status==4:
+                if gouliang_nka.swipe(1, 220, 300)or gouliang_nka2.swipe(1, 220, 300)or gouliang_nka3.swipe(1, 220, 300)or gouliang_nka4.swipe(1, 220, 300)or gouliang_nka5.swipe(1, 220, 300):
+                    time.sleep(1)
+                    if gouliang_nka.swipe(1, 650, 350)or gouliang_nka2.swipe(1, 650, 350)or gouliang_nka3.swipe(1, 650, 350)or gouliang_nka4.swipe(1, 650, 350)or gouliang_nka5.swipe(1, 650, 350):
+                        time.sleep(1)
+                        huan_status=5
+
+
+            elif huan_status==5:
+                manji_flag = 0
+                huan_status=0
+
+            # time.sleep(2)
+            # if huakuai.swipe(1,557,730):
+            #     time.sleep(1)
+            # if gouliang_nka.swipe(1,220,300):
+            #     time.sleep(1)
+            # if gouliang_nka.swipe(1, 650, 350):
+            #     time.sleep(1)
+
+            print("发现满级","status is ",huan_status)
+            log.info("发现满级"+"status is "+str(huan_status))
+
+
         jujue.tap(1)
-        time.sleep(2)
+        close.tap(1)
+        if flag_no_swipe == 0:
+            if move_count<15:
+                if move_.tap(1):
+                    move_count+=1
+                    flag_no_swipe = 1
+                    time.sleep(1.5)
+            elif move2_count<15 :
+                if move_2.tap(1):
+                    move2_count+=1
+                    flag_no_swipe = 1
+                    time.sleep(1.5)
+            elif move_count>=15:
+                move2_count=0
+            elif  move2_count>=15:
+                move_count =0
+        time.sleep(0.5)
+
+def over():
+    #todo:收尾工作
+    log.info("结束脚本")
+    close_ld.tap(1)
+
+    pass
 if __name__ == "__main__":
-    hunshi(1000,huan_gouliang())
-#     fuben(100)
+    # hunshi(1000,huan_gouliang())
+    fuben(100)
+    over()
 
     # logging.info("挑战魂十结束")
