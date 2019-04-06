@@ -162,7 +162,7 @@ def fuben(n):
                     huan_status = 4
 
                 huakuai.get_centerxy(1)
-                huakuai.swipe(1, huakuai.x + 80, huakuai.y)
+                huakuai.swipe(1, huakuai.x + 40, huakuai.y)
                 time.sleep(0.5)
 
             elif huan_status==4:
@@ -192,19 +192,19 @@ def fuben(n):
         jujue.tap(1)
         close.tap(1)
         if flag_no_swipe == 0:
-            if move_count<15:
+            if move_count<8:
                 if move_.tap(1):
                     move_count+=1
                     flag_no_swipe = 1
                     time.sleep(1.5)
-            elif move2_count<15 :
+            elif move2_count<8 :
                 if move_2.tap(1):
                     move2_count+=1
                     flag_no_swipe = 1
                     time.sleep(1.5)
-            elif move_count>=15:
+            elif move_count>=8:
                 move2_count=0
-            elif  move2_count>=15:
+            elif  move2_count>=8:
                 move_count =0
         time.sleep(0.5)
 
@@ -215,8 +215,8 @@ def over():
 
     pass
 if __name__ == "__main__":
-    # hunshi(1000,huan_gouliang())
-    fuben(100)
+    #hunshi(1000,huan_gouliang())
+    fuben(1000)
     over()
 
     # logging.info("挑战魂十结束")

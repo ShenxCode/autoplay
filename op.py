@@ -9,13 +9,24 @@ import threading
 import cv2
 
 
+ld_type=1  # 雷电模拟器运行
+DD_type=0  # dd虚拟鼠标
+yys_type=0 # 阴阳师桌面版运行
+
 dm = win32com.client.Dispatch('dm.dmsoft')
-# hwnd = dm.FindWindow("Win32Window0", "阴阳师-网易游戏")
+
+# if ld_type:
+#     hwnd = dm.FindWindow("LDPlayerMainFrame", "雷电模拟器")
+# elif yys_type:
+#     hwnd = dm.FindWindow("Win32Window0", "阴阳师-网易游戏")
 hwnd = dm.FindWindow("LDPlayerMainFrame", "雷电模拟器")
 dm.MoveWindow(hwnd,0, 0)
 scereen=dm.GetWindowRect(hwnd)
 if scereen[0]==0:
     scereen=[1,0,0,2000,2000]
+    # hwnd = dm.FindWindow("Win32Window0", "阴阳师-网易游戏")
+    # dm.MoveWindow(hwnd, 0, 0)
+    # scereen = dm.GetWindowRect(hwnd)
 #鼠标后台，截图后台
 dm.BindWindow(hwnd, "dx", "dx", "normal", 0)
 
@@ -24,6 +35,8 @@ pyautogui.FAILSAFE = True
 #可以为所有的PyAutoGUI函数增加延迟。默认延迟时间是0.1秒。在函数循环执行的时候，这样做可以让PyAutoGUI运行的慢一点，非常有用。
 pyautogui.PAUSE = 0
 log.info("op模块初始化完成")
+
+
 def super_tap(x,y,clicks=1,button="left",delay=0.2,xOffset=0,yOffset=0,delay2=0,delay3=0.03,delay4=0.02,click_type=1):
     """
     用鼠标点击
@@ -46,6 +59,7 @@ def super_tap(x,y,clicks=1,button="left",delay=0.2,xOffset=0,yOffset=0,delay2=0,
         pyautogui.click()
     elif click_type==2:
         pyautogui.click(x,y,clicks=clicks,interval=delay3,duration=delay4,button=button,tween=pyautogui.easeInQuad)#
+
 def swipe(x1,y1,x2,y2,delay=0.5,x1Offset=0, y1Offset=0,delay2=0,delay3=0.5,button='left'):
     """
     用鼠标，从x1,y1 拖动到 x2,y2
@@ -65,9 +79,12 @@ def swipe(x1,y1,x2,y2,delay=0.5,x1Offset=0, y1Offset=0,delay2=0,delay3=0.5,butto
         pyautogui.easeOutQuad函数的效果相反：光标开始移动很快，然后慢慢减速。
         pyautogui.easeOutElastic是弹簧效果，首先越过终点，然后再反弹回来
     """
+
     pyautogui.moveTo(x1, y1, duration=delay,tween=pyautogui.easeInQuad)
     pyautogui.moveRel(x1Offset, y1Offset, duration=delay2)
     pyautogui.dragTo(x2, y2,duration=delay3,button=button)
+
+
 def choice_add_or_sub(data1,data2):
     x=random.choice(['1','0'])
     if x == '1':
@@ -133,10 +150,10 @@ class PartOfTheScreen(object):
             if self.get_centerxy(condition):
                 # ranr = random.randint(1, self.r)
                 # rantime=random.randint(1,100)
-                T_tap_1=threading.Thread(target=super_tap,name='T_tap_1',kwargs={'x':choice_add_or_sub(self.x,random.randint(1, self.r)),'y':choice_add_or_sub(self.y,random.randint(1, self.r)),'delay4':(choice_add_or_sub(0.2,random.randint(1,100))/100)})
-                T_tap_2=threading.Thread(target=super_tap,name='T_tap_2',kwargs={'x':choice_add_or_sub(self.x,random.randint(1, self.r)),'y':choice_add_or_sub(self.y,random.randint(1, self.r)),'delay4':(choice_add_or_sub(0.2,random.randint(1,100))/100)})
-                T_tap_3=threading.Thread(target=super_tap,name='T_tap_3',kwargs={'x':choice_add_or_sub(self.x,random.randint(1, self.r)),'y':choice_add_or_sub(self.y,random.randint(1, self.r)),'delay4':(choice_add_or_sub(0.2,random.randint(1,100))/100)})
-                T_tap_4=threading.Thread(target=super_tap,name='T_tap_4',kwargs={'x':choice_add_or_sub(self.x,random.randint(1, self.r)),'y':choice_add_or_sub(self.y,random.randint(1, self.r)),'delay4':(choice_add_or_sub(0.2,random.randint(1,100))/100)})
+                T_tap_1=threading.Thread(target=super_tap,name='T_tap_1',kwargs={'x':choice_add_or_sub(self.x,random.randint(1, self.r)),'y':choice_add_or_sub(self.y,random.randint(1, self.r)),'delay':(choice_add_or_sub(0.2,random.randint(1,100))/100)})
+                T_tap_2=threading.Thread(target=super_tap,name='T_tap_2',kwargs={'x':choice_add_or_sub(self.x,random.randint(1, self.r)),'y':choice_add_or_sub(self.y,random.randint(1, self.r)),'delay':(choice_add_or_sub(0.2,random.randint(1,100))/100)})
+                T_tap_3=threading.Thread(target=super_tap,name='T_tap_3',kwargs={'x':choice_add_or_sub(self.x,random.randint(1, self.r)),'y':choice_add_or_sub(self.y,random.randint(1, self.r)),'delay':(choice_add_or_sub(0.2,random.randint(1,100))/100)})
+                T_tap_4=threading.Thread(target=super_tap,name='T_tap_4',kwargs={'x':choice_add_or_sub(self.x,random.randint(1, self.r)),'y':choice_add_or_sub(self.y,random.randint(1, self.r)),'delay':(choice_add_or_sub(0.2,random.randint(1,100))/100)})
                 T_tap_1.start()
                 T_tap_2.start()
                 T_tap_3.start()

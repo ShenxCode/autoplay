@@ -50,7 +50,7 @@ juqing_skip2=op.PartOfTheScreen("快进", PHOTOPATH + "kuaijin.bmp", 10)
 
 zhunbei2=op.PartOfTheScreen("准备", PHOTOPATH + "zhunbei2.bmp")
 zhunbei3=op.PartOfTheScreen("准备", PHOTOPATH + "zhunbei3.bmp")
-zhang28=op.PartOfTheScreen("二十八章", PHOTOPATH + "zhang28.bmp", 20)
+zhang28=op.PartOfTheScreen("二十八章", PHOTOPATH + "zhang28.bmp")
 tansuo=op.PartOfTheScreen("探索", PHOTOPATH + "tansuo.bmp", 20)
 boss=op.PartOfTheScreen("boss", PHOTOPATH + "boss.bmp", 10)
 boss3=op.PartOfTheScreen("boss", PHOTOPATH + "boss3.bmp", 10)
