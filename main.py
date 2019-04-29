@@ -76,12 +76,13 @@ def fuben(n):
     manji_flag=0
     huan_status=0
     while n>=0:
-        if baoxiang.get_centerxy(1) or baoxiang2.get_centerxy(1):
-            flag_findbox=1
-        if flag_findbox==1:
-            if baoxiang2.tap(1):
-                flag_findbox=0
-            close_tansuo.tap(1)
+        baoxiang2.tap(1)
+        # if baoxiang.get_centerxy(1) or baoxiang2.get_centerxy(1):
+        #     flag_findbox=1
+        # if flag_findbox==1:
+        #     if baoxiang2.tap(1):
+        #         flag_findbox=0
+        #     close_tansuo.tap(1)
         if tansuo.tap(flag_findbox==0):
             n-=1
             flag_tansuing=1
@@ -90,6 +91,7 @@ def fuben(n):
             time.sleep(2)
         if zhang28.tap(flag_findbox==0):
             flag_tansuing = 1
+        
         kunnan.tap(1)
         shibai.tap(1)
         shengli1.tap(1)
@@ -127,7 +129,7 @@ def fuben(n):
             flag_no_swipe = 1
 
 
-        elif jiangli.tap(1):
+        elif jiangli.tap(1)or jiangli2.tap(1):
             flag_no_swipe = 1
         elif manji.get_centerxy(1):
             manji_flag=1
@@ -215,8 +217,8 @@ def over():
 
     pass
 if __name__ == "__main__":
-    hunshi(1000,huan_gouliang())
-    #fuben(1000)
+    # hunshi(1000,huan_gouliang())
+    fuben(1000)
     over()
 
     # logging.info("挑战魂十结束")
