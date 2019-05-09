@@ -217,8 +217,8 @@ def over():
 
     pass
 if __name__ == "__main__":
-    # hunshi(1000,huan_gouliang())
-    fuben(1000)
+    hunshi(1000,huan_gouliang())
+    # fuben(1000)
     over()
 
     # logging.info("挑战魂十结束")
