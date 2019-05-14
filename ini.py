@@ -85,7 +85,7 @@ zhiren=op.PartOfTheScreen("小纸人", PHOTOPATH + "zhiren.bmp", 10)
 zhiren2=op.PartOfTheScreen("小纸人", PHOTOPATH + "zhiren2.bmp", 10)
 jiangli=op.PartOfTheScreen("奖励", PHOTOPATH + "jiangli.bmp", 10)
 jiangli2=op.PartOfTheScreen("奖励", PHOTOPATH + "jiangli2.bmp", 10)
-
+zuduiquxiao=op.PartOfTheScreen("组队取消",PHOTOPATH+"zuduiquxiao.bmp")
 baoxiang=op.PartOfTheScreen("宝箱暗",PHOTOPATH+"baoxiang.bmp")
 baoxiang2=op.PartOfTheScreen("宝箱",PHOTOPATH+"baoxiang2.bmp")
 close_tansuo=op.PartOfTheScreen("临时关闭探索界面",PHOTOPATH+"close_tansuo.bmp")

@@ -91,7 +91,7 @@ def fuben(n):
             time.sleep(2)
         if zhang28.tap(flag_findbox==0):
             flag_tansuing = 1
-        
+        zuduiquxiao.tap(1)
         kunnan.tap(1)
         shibai.tap(1)
         shengli1.tap(1)
@@ -217,8 +217,8 @@ def over():
 
     pass
 if __name__ == "__main__":
-    hunshi(1000,huan_gouliang())
-    # fuben(1000)
+    #hunshi(1000,huan_gouliang())
+    fuben(1000)
     over()
 
     # logging.info("挑战魂十结束")
