@@ -9,7 +9,7 @@ PHOTOPATH="photo/"
 yuhun = op.PartOfTheScreen("挑战御魂", PHOTOPATH + "yuhun.bmp")
 dashe = op.PartOfTheScreen("挑战大蛇", PHOTOPATH + "dashe.bmp", 70)
 yeyuanhuo=op.PartOfTheScreen("挑战业原火", PHOTOPATH + "yeyuanhuo.bmp")
-
+hunshishiceng=op.PartOfTheScreen("魂十十层", PHOTOPATH + "hunshishiceng.bmp")
 tiaozhan = op.PartOfTheScreen("挑战图片", PHOTOPATH + "tiaozhan.bmp")
 # gouliang= op.PartOfTheScreen("狗粮满级图片", PHOTOPATH + "gouliang.bmp")
 # diban = op.PartOfTheScreen("魂十地板", PHOTOPATH + "杂项_diban.bmp", 100)

@@ -26,24 +26,24 @@ def hunshi(n,c):
     c.send(None)
     while n>=1:
         # change=1
-        if 920<n<=930:
-                yeyuanhuo.tap(1)
-                # change=0
-                n=920
-
+        # if 920<n<=930:
+        #         yeyuanhuo.tap(1)
+        #         # change=0
+        #         n=920
+        hunshishiceng.tap(1)
         shibai.tap(1)
         tiaozhan.tap(1)
         shengli1.tap(1)
 
         if liaotian.tap(1):time.sleep(0.3)
-        if shenle.tap(1):time.sleep(0.3)
+        # if shenle.tap(1):time.sleep(0.3)
         if yuhun.tap(1):time.sleep(0.3)
         if dashe.tap(1):time.sleep(0.3)
         # diban.tap(1)
         # if diban2.tap(1):time.sleep(0.3)
-        if diban3.tap(1):time.sleep(0.3)
-        if boyuanya1.tap(1):time.sleep(0.3)
-        if boyuanya2.tap(1):time.sleep(0.3)
+        # if diban3.tap(1):time.sleep(0.3)
+        # if boyuanya1.tap(1):time.sleep(0.3)
+        # if boyuanya2.tap(1):time.sleep(0.3)
         # if boyuanya3.tap(1):time.sleep(0.3)
         if jujue.tap(1):time.sleep(0.3)
         
@@ -217,8 +217,8 @@ def over():
 
     pass
 if __name__ == "__main__":
-    #hunshi(1000,huan_gouliang())
-    fuben(1000)
+    hunshi(1000,huan_gouliang())
+    #fuben(1000)
     over()
 
     # logging.info("挑战魂十结束")
